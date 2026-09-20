@@ -1,0 +1,6 @@
+node_modules/
+.netlify/
+.ops/
+dist/
+.env*
+!.env.example

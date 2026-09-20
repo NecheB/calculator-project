@@ -3,10 +3,18 @@ import { renderChart } from './chart.js';
 import { translate } from './i18n.js';
 
 const $ = id => document.getElementById(id);
+try {
+  const saved = JSON.parse(localStorage.getItem('leadpredictor-preferences') || '{}');
+  if (['en', 'bg'].includes(saved.language)) $('language').value = saved.language;
+  if (['USD', 'EUR', 'BGN', 'GBP'].includes(saved.currency)) $('currency').value = saved.currency;
+} catch { /* Preferences are optional when browser storage is unavailable. */ }
 const format = value => new Intl.NumberFormat($('language').value, { maximumFractionDigits: 2 }).format(value);
 function update() {
   const locale = $('language').value;
   const text = translate(locale);
+  try {
+    localStorage.setItem('leadpredictor-preferences', JSON.stringify({ language: locale, currency: $('currency').value }));
+  } catch { /* Keep the calculator working when storage is blocked. */ }
   const symbol = { USD: '$', EUR: '€', BGN: 'лв.', GBP: '£' }[$('currency').value];
   document.querySelectorAll('.currency-symbol').forEach(element => { element.textContent = symbol; });
   for (const name of ['lead', 'prospect']) {

@@ -14,7 +14,7 @@ npm test
 npm run build
 ```
 
-Open http://127.0.0.1:5173. The build copies the static application into `dist/`.
+Open [https://necheb-leadpredictor.netlify.app/](https://necheb-leadpredictor.netlify.app/). The build copies the static application into `dist/`.
 
 ## Formulas
 

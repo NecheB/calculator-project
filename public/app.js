@@ -1,4 +1,5 @@
 import { calculateFunnel, campaignSchedule } from './calculator.js';
+import { renderChart } from './chart.js';
 
 const $ = id => document.getElementById(id);
 const format = value => new Intl.NumberFormat('en', { maximumFractionDigits: 2 }).format(value);
@@ -22,7 +23,7 @@ function update() {
     $('customer-percent').textContent = format(customerPercent) + '%';
     $('lead-meter').style.width = leadPercent + '%';
     $('customer-meter').style.width = customerPercent + '%';
-    document.dispatchEvent(new CustomEvent('forecast-update', { detail: { funnel, schedule } }));
+    renderChart({ funnel, schedule });
   } catch (error) {
     $('error').textContent = error.message === 'invalidDates' ? 'Choose a valid campaign period of up to 10 years. The end must be on or after the start.' : 'Enter a revenue goal from 0 to 1 trillion, an order value from 0.01 to 1 trillion, and response rates from 1% to 100%.';
     $('error').hidden = false;

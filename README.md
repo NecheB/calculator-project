@@ -2,6 +2,8 @@
 
 A campaign funnel calculator inspired by the supplied reference. Built with plain HTML, CSS and JavaScript.
 
+**Live demo (Netlify): [https://necheb-leadpredictor.netlify.app/](https://necheb-leadpredictor.netlify.app/)**
+
 ## Run locally
 
 Requires Node.js 22 or newer. There are no runtime or build dependencies.
@@ -29,6 +31,8 @@ The chart assumes uniform progress over the campaign, showing up to six cumulati
 English and Bulgarian are supported. Currency selection changes the denomination label only; it does not convert amounts using exchange rates.
 
 ## Deployment
+
+The calculator is deployed publicly at **[LeadPredictor on Netlify](https://necheb-leadpredictor.netlify.app/)**.
 
 Netlify uses `npm run build` and publishes `dist/`, configured in `netlify.toml`.
 GitHub Actions runs tests and the build on pushes and pull requests.

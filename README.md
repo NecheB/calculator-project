@@ -14,7 +14,7 @@ Local development requires Node.js 22 or newer. There are no runtime or build de
 npm run dev
 ```
 
-While the server is running, open [http://localhost:5173](http://localhost:5173) in your browser. This address works only on your own computer; it is not the public deployment.
+While the server is running, open `localhost` in your browser using the port shown in the terminal when the development server starts. This address works only on your own computer; it is not the public deployment.
 
 To run the tests or create a production build:
 

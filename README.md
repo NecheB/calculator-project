@@ -6,15 +6,24 @@ A campaign funnel calculator inspired by the supplied reference. Built with plai
 
 ## Run locally
 
-Requires Node.js 22 or newer. There are no runtime or build dependencies.
+This optional section is for running the calculator on your own computer. To use the published app without any setup, open the [live Netlify site](https://necheb-leadpredictor.netlify.app/).
+
+Local development requires Node.js 22 or newer. There are no runtime or build dependencies. Clone or download this repository, open a terminal in the project folder, and start the development server:
 
 ```sh
 npm run dev
+```
+
+While the server is running, open [http://localhost:5173](http://localhost:5173) in your browser. This address works only on your own computer; it is not the public deployment.
+
+To run the tests or create a production build:
+
+```sh
 npm test
 npm run build
 ```
 
-Open [https://necheb-leadpredictor.netlify.app/](https://necheb-leadpredictor.netlify.app/). The build copies the static application into `dist/`.
+The build copies the static application into `dist/`.
 
 ## Formulas
 

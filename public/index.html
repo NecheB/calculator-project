@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Plan your revenue goal. Calculate the prospects, leads and customers your next campaign needs.">
+  <meta name="theme-color" content="#141e2c"><title>LeadPredictor — Campaign calculator</title>
+  <link rel="icon" href="data:,"><link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <header><a class="brand" href="./"><span class="brand-icon">▽</span><span>Lead<span class="brand-light">Predictor</span></span></a><span class="header-note" data-i18n="tagline">A clear path to your revenue goal.</span><span class="status"><i></i><span data-i18n="live">Live forecast</span></span></header>
+    <main>
+      <aside class="panel settings">
+        <div class="section-heading"><span class="eyebrow" data-i18n="setup">CAMPAIGN SETUP</span><span class="section-number">01</span></div>
+        <form id="settings" novalidate>
+          <label for="language" data-i18n="language">Language</label><select id="language"><option value="en">English</option><option value="bg">Български</option></select>
+          <label for="currency" data-i18n="currency">Currency</label><select id="currency"><option value="USD">$ US Dollar</option><option value="EUR">€ Euro</option><option value="BGN">лв. Bulgarian Lev</option><option value="GBP">£ British Pound</option></select>
+          <div class="divider"></div>
+          <label for="start" data-i18n="start">Campaign start</label><input id="start" type="date" value="2026-05-08" required>
+          <label for="end" data-i18n="end">Campaign end</label><input id="end" type="date" value="2026-11-04" required>
+          <div class="divider"></div>
+          <label for="revenue" data-i18n="revenue">Total revenue goal</label><div class="money-input"><span class="currency-symbol">$</span><input id="revenue" type="number" min="0" max="1000000000000" step="any" value="10000" required></div>
+          <label for="order" data-i18n="order">Average order value</label><div class="money-input"><span class="currency-symbol">$</span><input id="order" type="number" min="0.01" max="1000000000000" step="any" value="1000" required></div>
+          <p class="field-note" data-i18n="currencyNote">Currency changes the display, not the exchange rate.</p>
+        </form>
+      </aside>
+      <div class="workspace">
+        <section class="panel forecast">
+          <div class="forecast-heading"><div><span class="eyebrow" data-i18n="overview">YOUR CAMPAIGN AT A GLANCE</span><h1 data-i18n="forecast">The path to your target</h1></div><span id="duration" class="badge">180 days</span></div>
+          <p id="error" role="alert" hidden></p>
+          <div class="forecast-content" id="results">
+            <div class="chart-area"><div class="chart-meta"><span data-i18n="growth">Cumulative campaign growth</span><span data-i18n="people">People</span></div><div id="chart" class="chart" aria-label="Cumulative campaign forecast"></div><div id="axis" class="axis"></div><div class="legend"><span><i class="prospect-dot"></i><span data-i18n="prospects">Prospects</span></span><span><i class="lead-dot"></i><span data-i18n="leads">Leads</span></span><span><i class="customer-dot"></i><span data-i18n="customers">Customers</span></span></div></div>
+            <div class="metrics" aria-live="polite">
+              <article class="metric prospects"><div class="metric-top"><span><b class="metric-icon">▤</b> <span data-i18n="prospects">Prospects</span></span><span id="prospect-percent">100%</span></div><strong id="prospects">125</strong><div class="meter"><i id="prospect-meter"></i></div><small data-i18n="prospectsNote">People to reach out to</small></article>
+              <article class="metric leads"><div class="metric-top"><span><b class="metric-icon">♙</b> <span data-i18n="leads">Leads</span></span><span id="lead-percent">20%</span></div><strong id="leads">25</strong><div class="meter"><i id="lead-meter"></i></div><small data-i18n="leadsNote">Conversations to start</small></article>
+              <article class="metric customers"><div class="metric-top"><span><b class="metric-icon">⚑</b> <span data-i18n="customers">Customers</span></span><span id="customer-percent">8%</span></div><strong id="customers">10</strong><div class="meter"><i id="customer-meter"></i></div><small data-i18n="customersNote">Orders to win</small></article>
+            </div>
+          </div>
+        </section>
+        <section class="panel rates"><div class="section-heading"><span class="eyebrow" data-i18n="tune">FINE-TUNE YOUR CONVERSION</span><span class="section-number">02</span></div>
+          <div class="range-heading"><label for="lead-rate" data-i18n="leadRate">Lead response rate</label><output for="lead-rate" id="lead-output">40%</output></div><input id="lead-rate" type="range" min="1" max="100" value="40"><div class="range-caption"><span data-i18n="leadHint">From interested leads to paying customers</span><span>1 — 100%</span></div>
+          <div class="range-heading second"><label for="prospect-rate" data-i18n="prospectRate">Prospect response rate</label><output for="prospect-rate" id="prospect-output">20%</output></div><input id="prospect-rate" type="range" min="1" max="100" value="20"><div class="range-caption"><span data-i18n="prospectHint">From first contact to interested lead</span><span>1 — 100%</span></div>
+        </section>
+        <footer><span data-i18n="footer">Better inputs. Clearer targets. Stronger campaigns.</span><span>LeadPredictor <span class="footer-version">/ 1.0</span></span></footer>
+      </div>
+    </main>
+  </div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
